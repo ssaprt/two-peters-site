@@ -1,8 +1,3 @@
-const API_URL =
-    typeof window === "undefined"
-        ? process.env.API_URL
-        : process.env.NEXT_PUBLIC_API_URL;
-
 type ImageFileType = {
     id: number;
     image: string;
@@ -31,6 +26,7 @@ export interface ContentBlock {
 }
 
 const PATH: string = "/uploads/tour_general_page/";
+const BASE_URL = typeof window === "undefined" ? process.env.SITE_URL! : "";
 
 function isPairKey(key: string): key is "firstPair" | "secondPair" {
     return key === "firstPair" || key === "secondPair";
@@ -39,7 +35,7 @@ function isPairKey(key: string): key is "firstPair" | "secondPair" {
 export async function getGeneralTour() {
     try {
         const res = await fetch(
-            API_URL + "/uploads/tour_general_page/general-page-tour.json",
+            BASE_URL + "/uploads/tour_general_page/general-page-tour.json",
         );
         const data: ContentBlock = await res.json();
 
