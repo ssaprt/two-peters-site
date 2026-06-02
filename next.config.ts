@@ -1,6 +1,7 @@
 import type { NextConfig } from "next";
 import path from "path";
-
+console.log("API_URL =", process.env.API_URL);
+console.log("UPLOADS_URL =", process.env.UPLOADS_URL);
 const nextConfig: NextConfig = {
     reactStrictMode: true,
     devIndicators: false,
