@@ -16,7 +16,6 @@ export function AgeGateModal() {
 
         if (!verified) {
             setIsOpen(true);
-            document.body.style.overflow = "hidden";
         }
     }, []);
 
@@ -28,8 +27,6 @@ export function AgeGateModal() {
         }
 
         await registerVisit();
-
-        document.body.style.overflow = "";
         setIsOpen(false);
     }
 
