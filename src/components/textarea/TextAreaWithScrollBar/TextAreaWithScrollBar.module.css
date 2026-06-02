@@ -1,0 +1,35 @@
+.textareaOverlay {
+    position: relative;
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    background: rgba(0, 0, 0, .15);
+    border: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: inset 0px 0px 5px 0px rgba(0, 0, 0, 0.4);
+    
+    
+}
+
+
+.textarea {
+  position: relative;
+    width: 100%;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100%;
+    color: var(--global-neutral-color);
+    font-family: var(--1nth-font);
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 300;
+    border-radius: 4px;
+    outline: 1px solid transparent;
+    outline-offset: 10px;
+    transition: outline-offset .13s linear .05s, outline-color .13s linear;
+  }
+  
+  .textarea:focus-within {
+    outline-color: var(--global-color-link);
+    outline-offset: 0px;
+    transition: outline-offset .13s linear, outline-color .13s linear .03s;
+  }

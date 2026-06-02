@@ -1,0 +1,71 @@
+.overlay {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+    gap: 12px;
+}
+
+.lWrap {
+    position: sticky;
+    top: calc(50% - 216px);
+    margin-left: 20px;
+    height: 432px;
+    width: 38px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html[data-device="mobile"] .lWrap {
+    margin-left: 10px;
+}
+
+.l {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    touch-action: pan-y;
+    -webkit-overflow-scrolling: touch;
+    pointer-events: auto;
+    width: 38px;
+    height: 100%;
+    overflow-x: hidden;
+}
+
+html[data-device="mobile"] .lWrap {
+    margin-left: 10px;
+}
+
+.icon {
+    flex-shrink: 0;
+    position: relative;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    transition: transform 0.13s ease-in-out;
+    margin: 6px auto;
+    fill: var(--global-color-link);
+    cursor: pointer;
+}
+
+.icon:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+}
+
+.before {
+    fill: #b4b4b4;
+}
+
+.current {
+    fill: var(--success-color);
+}
+
+.new {
+    fill: var(--global-color-link);
+}
+
+.r {
+    flex: 1;
+    min-width: 0;
+    padding: 20px;
+}

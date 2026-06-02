@@ -1,0 +1,84 @@
+.divImg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    transition:
+        aspect-ratio 0.45s ease,
+        width 0.45s ease,
+        height 0.45s ease;
+}
+
+.divImg * {
+    pointer-events: none;
+}
+
+/* media */
+
+.media {
+    position: relative;
+
+    opacity: 0;
+    transition: opacity 0.45s ease;
+}
+
+.ready {
+    opacity: 1;
+}
+
+/* loader */
+
+.overlayLoading {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    background: var(--global-bg-color);
+}
+
+/* placeholder */
+
+.placeholder {
+    position: absolute;
+    inset: 0;
+    background: var(--global-bg-color);
+}
+
+/* error */
+
+.error {
+    position: absolute;
+    inset: 0;
+}
+
+.localLoader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    max-width: 100px;
+    height: auto;
+    stroke: var(--global-neutral-color);
+    fill: var(--global-neutral-color);
+    transform: translate(-50%, -50%) scale(1);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.15;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+}

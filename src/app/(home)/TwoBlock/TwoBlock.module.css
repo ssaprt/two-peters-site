@@ -1,0 +1,36 @@
+.content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.link {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.link:hover .pallet {
+    opacity: 0.9;
+}
+
+.link h3 {
+    color: var(--global-bg-color);
+    z-index: 2;
+}
+
+.pallet {
+    position: absolute;
+    fill: rgba(255, 255, 255, 0.9);
+    transform: rotate(2deg);
+    top: -12px;
+    width: 100%;
+    height: auto;
+}

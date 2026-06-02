@@ -1,0 +1,94 @@
+.wrapper {
+    width: 100%;
+    min-width: 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.divImg {
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    min-width: 1px;
+    contain: paint;
+}
+/* 
+.divImg * {
+    pointer-events: none;
+} */
+
+/* media */
+
+.media {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    transition:
+        opacity 0.45s ease,
+        visibility 0s linear 0.45s;
+}
+
+.ready {
+    visibility: visible;
+    opacity: 1;
+    transition-delay: 0s;
+}
+
+/* loader */
+
+.overlayLoading {
+    position: absolute;
+    inset: 0;
+    z-index: 5;
+    inset: -2px;
+    background: var(--global-bg-color);
+}
+
+/* placeholder */
+
+.placeholder {
+    position: absolute;
+    inset: 0;
+    background: var(--global-bg-color);
+}
+
+/* error */
+
+.error {
+    position: absolute;
+    inset: 0;
+}
+
+.localLoader {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 70%;
+    max-width: 100px;
+    height: auto;
+    stroke: var(--global-neutral-color);
+    fill: var(--global-neutral-color);
+    transform: translate(-50%, -50%) scale(1.01);
+    border-radius: 50%;
+    opacity: 0.3;
+    animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        opacity: 0.15;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.3;
+    }
+}

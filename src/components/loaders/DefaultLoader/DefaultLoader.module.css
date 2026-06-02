@@ -1,0 +1,143 @@
+#defaultLoader {
+    will-change: opacity;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--global-bg-color);
+    z-index: 9;
+    --time-animation-loader: 300ms;
+    pointer-events: none;
+    border-radius: inherit;
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    left: -2px;
+    top: -2px;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+}
+
+.startHidden {
+    animation: hidden var(--time-animation-loader) ease-in-out forwards;
+    animation-delay: 0.5s;
+    pointer-events: none;
+}
+
+@keyframes hidden {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.over {
+    will-change: opacity, transform;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) translateZ(0);
+    transform-origin: center center;
+    width: 100%;
+    max-width: 100px;
+    aspect-ratio: 1/1;
+    stroke: var(--global-color-link);
+    fill: var(--global-color-link);
+    color: var(--global-neutral-color);
+    opacity: 0.6;
+}
+
+.divForIcons {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    transform-origin: center center;
+    width: 100%;
+    height: 100%;
+    animation: rotatesOut 5s linear infinite;
+}
+
+.divForIcons::before {
+    content: "";
+    border-radius: 50%;
+
+    border-left: 1px solid var(--global-neutral-color);
+    display: block;
+    pointer-events: none;
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+    z-index: -1;
+    animation: p 0.7s linear infinite;
+    opacity: 1;
+    box-shadow: inset 2px -1px 4px 0px var(--global-neutral-color);
+}
+
+.iconText {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    stroke: currentColor;
+    fill: currentColor;
+    width: 100%;
+    height: 100%;
+    transform-origin: center center;
+    border-radius: 50%;
+}
+
+@keyframes rotatesOut {
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes p {
+    100% {
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+.startHidden .over {
+    opacity: 0.6;
+    animation-delay: 0.4s;
+    animation: opac var(--time-animation-loader) ease-in-out forwards;
+    pointer-events: none;
+}
+
+@keyframes opac {
+    100% {
+        opacity: 0;
+    }
+}
+
+.iconS {
+    transform-origin: center center;
+    position: absolute;
+    left: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+    stroke: currentColor;
+    fill: currentColor;
+    width: 40%;
+    height: 40%;
+}
+
+.iconP {
+    transform-origin: center center;
+    position: absolute;
+    right: 18%;
+    top: 50%;
+    transform: translateY(-50%);
+    stroke: currentColor;
+    fill: currentColor;
+    width: 40%;
+    height: 40%;
+}

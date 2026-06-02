@@ -1,0 +1,111 @@
+.set {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    align-items: start;
+    border: 2px outset var(--global-color-link);
+    position: relative;
+    padding: 12px;
+    border-radius: 24px;
+    width: 100%;
+    box-shadow: 0 2px 2px 0px rgba(0, 0, 0, 0.55);
+
+    color: var(--global-color-link);
+}
+
+.set::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--global-wine-color);
+    border-radius: inherit;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.set::before {
+    content: attr(data-type);
+    position: absolute;
+    top: 16px;
+    right: 12px;
+    letter-spacing: 1.5px;
+    transform: rotate(45deg);
+    display: block;
+    text-align: center;
+    font-size: 12px;
+    color: var(--global-color-link);
+}
+
+.section {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+}
+
+.title {
+    color: var(--global-color-link);
+}
+
+.section svg {
+    width: 36px;
+    height: 36px;
+}
+
+.features {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: start;
+}
+
+.feature {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    padding-left: 6px;
+}
+
+.feature p {
+    color: currentColor;
+}
+
+.icon {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.icon::before,
+.icon::after {
+    content: "";
+    position: relative;
+    width: 2px;
+    height: 12px;
+    background: currentColor;
+    border-radius: 50%;
+}
+
+.additional:first-of-type .icon::before {
+    display: none;
+}
+
+.feature:last-of-type .icon::after {
+    display: none;
+}
+
+.feature:last-child {
+    align-items: flex-end;
+}
+
+.feature svg {
+    width: 24px;
+    height: 24px;
+    fill: currentColor;
+}

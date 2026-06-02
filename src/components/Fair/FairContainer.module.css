@@ -1,0 +1,17 @@
+.fair {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 40px 0;
+}
+.imgBox {
+    position: relative;
+    box-sizing: border-box;
+    margin-top: 6px;
+
+    max-height: 400px;
+}
+
+html[data-device="mobile"] .imgBox {
+    max-height: none;
+}

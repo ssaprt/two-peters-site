@@ -1,0 +1,7 @@
+.ant-carousel {
+    height: 500px !important;
+}
+
+html[data-device="mobile"] .ant-carousel {
+    height: auto !important;
+}

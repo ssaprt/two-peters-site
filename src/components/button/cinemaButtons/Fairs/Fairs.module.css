@@ -1,0 +1,71 @@
+.container {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+.icon {
+    fill: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    border-radius: inherit;
+    /* animation: 1.3s ease-in-out infinite pulsez_news-block; */
+    pointer-events: none;
+}
+.blob {
+    width: 40px;
+    height: 40px;
+}
+
+.blob svg {
+    width: 100%;
+    height: 100%;
+}
+
+.drop {
+    fill: rgba(255, 255, 255, 0.8);
+}
+
+.dropDown {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    fill: rgba(255, 255, 255, 0.8);
+    width: 0%;
+}
+
+.start .dropDown {
+    animation: scaleDrop 4s linear infinite;
+    width: 0%;
+}
+
+@keyframes scaleDrop {
+    35% {
+        width: 0%;
+    }
+
+    50% {
+        width: 10px;
+        top: 40px;
+    }
+
+    100% {
+        top: 300px;
+    }
+}

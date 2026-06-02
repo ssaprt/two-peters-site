@@ -1,0 +1,44 @@
+.overlay {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    gap: 12px;
+    align-items: flex-start;
+    margin: 40px 0;
+}
+
+html[data-device="mobile"] .overlay {
+    align-items: center;
+}
+
+.link {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    padding: 6px 12px;
+    position: relative;
+    align-items: center;
+    border: 2px outset rgba(0, 0, 0, 0);
+    border-right-color: rgba(0, 0, 0, 0);
+    border-bottom-color: rgba(0, 0, 0, 0);
+    border-radius: 24px;
+}
+
+.link:hover {
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.8);
+    border: 2px outset var(--global-neutral-color);
+    border-right-color: var(--global-default-color-text);
+    border-bottom-color: var(--global-default-color-text);
+}
+
+.link svg {
+    fill: var(--global-neutral-color);
+    width: 20px;
+    height: 20px;
+}
+
+.link span {
+    color: var(--global-neutral-color);
+    font-weight: 300;
+    cursor: pointer;
+}

@@ -1,0 +1,47 @@
+/* Десктоп: скрываем полосу прокрутки везде */
+html[data-device="desktop"],
+html[data-device="desktop"] body {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html[data-device="desktop"]::-webkit-scrollbar,
+html[data-device="desktop"] body::-webkit-scrollbar {
+    display: none;
+}
+
+/* Скрываем на всех элементах для десктопа */
+html[data-device="desktop"] * {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+html[data-device="desktop"] *::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+
+/* Мобильные: показываем полосу прокрутки */
+html[data-device="mobile"],
+html[data-device="mobile"] body {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+}
+
+html[data-device="mobile"]::-webkit-scrollbar,
+html[data-device="mobile"] body::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+    height: 8px;
+}
+
+/* Убираем принудительное скрытие с элементов на мобильных */
+html[data-device="mobile"] * {
+    scrollbar-width: auto;
+    -ms-overflow-style: auto;
+}
+
+html[data-device="mobile"] *::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}

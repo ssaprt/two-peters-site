@@ -1,0 +1,188 @@
+.productTop {
+    position: relative;
+    width: 100%;
+    height: 100dvh;
+    display: flex;
+    flex-direction: row;
+    gap: 0px;
+}
+
+.leftTop,
+.rightTop {
+    width: 50%;
+    height: 100%;
+    overflow: visible;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+.leftTop {
+    z-index: 1;
+    background: var(--global-wine-color);
+    align-items: start;
+    justify-content: start;
+    padding-left: 16px;
+    position: relative;
+    gap: 10px;
+}
+
+.imgProduct {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 10%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+html[data-device="mobile"] .imgProduct {
+    transform: none;
+    left: 0px;
+    top: 16%;
+}
+
+.rightTop {
+    z-index: 2;
+    box-shadow: -11px 0 7px -2px rgba(0, 0, 0, 0.18);
+    display: flex;
+    background: var(--global-bg-color);
+    justify-content: center;
+    height: 100%;
+    padding: 10px;
+}
+
+.title {
+    color: #fff;
+    position: relative;
+    width: 100%;
+    text-transform: uppercase;
+    opacity: 1;
+    font-weight: 50;
+    letter-spacing: 3px;
+    margin-top: 110px;
+}
+
+.description {
+    letter-spacing: 2.1px;
+    color: #fff;
+    font-weight: 400;
+    font-size: 14px;
+    margin-bottom: 30px;
+    width: 80%;
+}
+
+.leftTop .description {
+    margin-top: 16px;
+}
+
+.prop {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 6px auto;
+}
+
+.prop svg {
+    fill: #fff;
+    opacity: 0.5;
+    width: 30px;
+    height: 30px;
+    margin-bottom: 6px;
+}
+
+.titleProp {
+    font-weight: 100;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #fff;
+    opacity: 0.5;
+}
+
+.titleValue {
+    font-weight: 10;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: #fff;
+    opacity: 0.7;
+    text-align: center;
+}
+
+.isSertificate {
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+.isSertificate svg {
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+}
+
+.isSertificate span {
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1.2px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-decoration: underline;
+}
+
+.imgLogo {
+    position: absolute;
+    top: calc(100dvh - 30px);
+    width: 60px;
+    height: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    z-index: 10;
+}
+
+.mobile {
+    background: var(--global-bg-color);
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    min-height: 100dvh;
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    padding-bottom: 120px;
+}
+
+.mobile .title {
+    text-align: center;
+    font-size: 24px;
+    color: var(--global-color-link);
+    opacity: 1;
+    font-weight: 300;
+    margin-top: 120px;
+    letter-spacing: 3px;
+
+    text-underline-offset: 6px;
+}
+
+.mobile .description {
+    letter-spacing: 1.4px;
+    text-transform: uppercase;
+    display: block;
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 16px;
+    font-weight: normal;
+    opacity: 1;
+    margin: 0 0px;
+    width: 100%;
+    margin-top: 25px;
+    text-transform: none;
+    text-align: center;
+    max-width: 600px;
+}
+
+.mobile .aBuy {
+    width: auto;
+    margin: 20px 0px;
+}

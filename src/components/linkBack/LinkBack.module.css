@@ -1,0 +1,32 @@
+.back {
+    position: absolute;
+    left: 20px;
+    top: calc(100% + 10px);
+    display: flex;
+    flex-direction: row;
+    gap: 6px;
+}
+
+html[data-device="mobile"] .back {
+    left: 10px;
+}
+
+.back svg {
+    width: 20px;
+    height: 20px;
+    fill: rgba(255, 255, 255, 0.85);
+}
+
+.back span {
+    color: rgba(255, 255, 255, 0.85);
+    user-select: none;
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: lowercase;
+    letter-spacing: 1.2px;
+    transition: letter-spacing 0.2s ease;
+}
+
+.back span:hover {
+    letter-spacing: 2px;
+}

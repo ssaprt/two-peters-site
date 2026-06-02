@@ -1,0 +1,117 @@
+.scrollLayer {
+    position: absolute;
+    transform: translateX(calc(-1 * var(--y-header)));
+    z-index: 3;
+}
+
+.button {
+    pointer-events: auto;
+    user-select: none;
+    position: absolute;
+    width: 36px;
+    height: 28px;
+    cursor: pointer;
+    --x: 20px;
+    left: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: currentColor;
+    transition: transform 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.63);
+    transition-delay: 0.1s;
+}
+
+.open {
+    color: var(--global-neutral-color);
+    transform: translateX(calc(var(--is-menu-width) - 20px + var(--y-header)))
+        translateY(-50%);
+}
+
+html[data-device="desktop"] .open {
+    transition:
+        transform 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53),
+        color 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}
+
+html[data-device="mobile"] .button {
+    left: 30px;
+    transition: transform 0.33s ease-in;
+}
+
+html[data-device="mobile"] .open {
+    transform: translateY(-50%) translateX(calc(-10px + var(--y-header)));
+    transition:
+        transform 0.55s cubic-bezier(0.79, 0.33, 0.14, 0.53),
+        color 0.55s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+    transition-delay: 0.1s;
+}
+
+.button::before {
+    content: "";
+    right: 50%;
+    top: 15%;
+    transform: translateX(50%);
+    transform-origin: center top;
+}
+
+.middle {
+    right: 0;
+    top: calc(50% - 1px);
+    pointer-events: none;
+}
+
+.button::after {
+    content: "";
+    transform-origin: center bottom;
+    right: 50%;
+    transform: translateX(50%);
+    top: calc(85% - 2px);
+}
+
+.button::after,
+.button::before,
+.middle {
+    pointer-events: none;
+    user-select: none;
+    position: absolute;
+    width: 36px;
+    height: 2px;
+    background: currentColor;
+}
+
+.button::after,
+.button::before {
+    transition:
+        transform 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53),
+        top 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}
+.open::before {
+    transform: translate(50%, -50%) rotate(-45deg);
+    top: 50%;
+}
+
+.open::after {
+    transform: translate(50%, -50%) rotate(45deg);
+    top: 50%;
+}
+
+.open::after,
+.open::before {
+    transition:
+        transform 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53),
+        top 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}
+
+.middle {
+    opacity: 1;
+    transition:
+        width 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.63),
+        opacity 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}
+
+.open .middle {
+    opacity: 0;
+    width: 0;
+    transition:
+        width 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53),
+        opacity 0.45s cubic-bezier(0.79, 0.33, 0.14, 0.53);
+}

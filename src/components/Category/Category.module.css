@@ -1,0 +1,74 @@
+.category {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    margin: 20px 0px;
+}
+
+html[data-device="mobile"] .category {
+    flex-direction: column;
+    align-items: center;
+}
+
+.cover {
+    position: relative;
+    display: block;
+    object-fit: contain;
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+html[data-device="mobile"] .cover div {
+    justify-content: center;
+}
+
+.overlayContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+}
+
+html[data-device="mobile"] .overlayContent {
+    align-items: center;
+}
+
+.title {
+    position: relative;
+    user-select: none;
+    font-size: 26px;
+    color: #e2dfcf;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-style: normal;
+    text-shadow: 0 4px 6px #000;
+    letter-spacing: 2px;
+    margin-bottom: 6px;
+}
+
+.count {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+.count svg {
+    width: 30px;
+    height: 30px;
+    fill: var(--global-neutral-color);
+}
+
+.count span {
+    color: var(--global-neutral-color);
+    font-weight: 300;
+    font-size: 12px;
+}
+
+.overlayContent a {
+    margin-top: 20px;
+    font-size: 14px;
+    outline-offset: 0px;
+}

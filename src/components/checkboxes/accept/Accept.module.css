@@ -1,0 +1,108 @@
+/* BASE */
+.acceptLabel {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+  }
+  
+  .acceptLabel span {
+    font-family: var(--1nth-font);
+    font-size: 12px;
+    margin-left: 4px;
+    transition: color 0.25s ease;
+
+    display: inline-block;
+    max-width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
+  .svg {
+    width: 20px;
+    min-width: 20px;
+    height: 20px;
+    min-height: 20px;
+    background: var(--background);
+    box-sizing: border-box;
+    box-shadow: 1px 1px 1px 0px rgba(0, 0, 0, .8);
+    outline: 1px solid transparent;
+    outline-offset: 0px;
+    flex: 0 0 auto;
+  }
+
+  :checked + .acceptLabel .svg {
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, .8);
+    animation: pulse 0.4s ease forwards;
+  }
+
+  @keyframes pulse {
+    0% {
+      outline-color: var(--activeBorder);
+    }
+    100% {
+      outline-offset: 4px;
+      outline-color: transparent;
+    }
+  }
+  
+  /* ===== DEFAULT ===== */
+  
+  :not(:checked) + .acceptLabel span {
+    color: var(--defaultColor);
+  }
+  
+  /* ACCEPT */
+  :not(:checked) + .acceptLabel .accept {
+    stroke-dasharray: 23.35;
+    stroke-dashoffset: 23.35;
+    stroke: var(--activeBorder);
+    transition: stroke-dashoffset 0.33s ease-in;
+  }
+  
+  /* BORDER */
+  :not(:checked) + .acceptLabel .border {
+    stroke-dasharray: 91.31;
+    stroke-dashoffset: 0;
+    stroke: var(--defaultBorder);
+    transition: stroke-dashoffset 0.25s ease 0.1s;
+  }
+  
+  /* BORDER AFTER */
+  :not(:checked) + .acceptLabel .borderAfter {
+    stroke-dasharray: 91.31;
+    stroke-dashoffset: -91.31;
+    stroke: var(--activeBorder);
+    transition: stroke-dashoffset 0.25s ease 0s;
+  }
+  
+  /* ===== CHECKED ===== */
+  
+  :checked + .acceptLabel span {
+    color: var(--activeColor);
+  }
+  
+  /* ACCEPT (галочка рисуется) */
+  :checked + .acceptLabel .accept {
+    stroke-dasharray: 23.35;
+    stroke-dashoffset: 0;
+    stroke: var(--activeColor);
+    transition: stroke-dashoffset 0.33s cubic-bezier(0.65, 0, 0.35, 1) 0.15s;
+  }
+  
+  /* BORDER (первый убегает) */
+  :checked + .acceptLabel .border {
+    stroke-dasharray: 91.31;
+    stroke-dashoffset: 91.31;
+    stroke: rgba(255, 255, 255, .1);
+    transition: stroke-dashoffset 0.25s ease 0s;
+  }
+  
+  /* BORDER AFTER (догоняет) */
+  :checked + .acceptLabel .borderAfter {
+    stroke-dasharray: 91.31;
+    stroke-dashoffset: 0;
+    stroke: var(--activeColor);
+    transition: stroke-dashoffset 0.25s ease 0.1s;
+  }

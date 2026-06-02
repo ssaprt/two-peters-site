@@ -1,0 +1,48 @@
+.status {
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+}
+
+.status * {
+    user-select: none;
+}
+
+.textStatus {
+    padding: 4px 8px;
+    border-radius: 14px;
+}
+
+.end svg {
+    fill: #b4b4b4;
+}
+.end .date {
+    color: #b4b4b4;
+}
+.end .textStatus {
+    background: #b4b4b4;
+    color: var(--global-bg-color);
+}
+
+.current svg {
+    fill: var(--success-color);
+}
+.current .date {
+    color: var(--success-color);
+}
+.current .textStatus {
+    background: var(--success-color);
+    color: var(--global-bg-color);
+}
+
+.new svg {
+    fill: var(--global-color-link);
+}
+.new .date {
+    color: var(--global-color-link);
+}
+.new .textStatus {
+    background: var(--global-color-link);
+    color: var(--global-bg-color);
+}

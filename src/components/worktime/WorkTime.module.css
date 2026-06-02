@@ -1,0 +1,190 @@
+.tableWorkB {
+    position: relative;
+    display: block;
+    width: 90%;
+    margin: 10px auto;
+    height: auto;
+    border: 1px solid #a2a2a2;
+    border-radius: 25%;
+}
+
+.centerB,
+.centerBB,
+.endB,
+.endBB,
+.leftB,
+.leftBB {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-pack: distribute;
+    justify-content: space-around;
+    padding: 0;
+    background: var(--global-bg-color);
+    text-align: center;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.leftBB {
+    border-radius: 8px 8px 0 0;
+}
+
+.centerBB {
+    z-index: 3;
+    box-shadow:
+        inset 0 6px 6px -2px rgba(0, 0, 0, 0.43),
+        inset 0 -6px 6px -2px rgba(0, 0, 0, 0.43);
+}
+
+.centerB span,
+.centerBB span,
+.endB span,
+.endBB span,
+.leftB span,
+.leftBB span {
+    color: #d1d1d1;
+    width: 100%;
+    border-right: 1px solid #a2a2a2;
+    font-size: 12px;
+    padding: 6px;
+
+    user-select: none;
+    user-select: none;
+    pointer-events: none;
+    position: relative;
+}
+
+html[data-device="mobile"] .centerB span,
+html[data-device="mobile"] .centerBB span,
+html[data-device="mobile"] .endB span,
+html[data-device="mobile"] .endBB span,
+html[data-device="mobile"] .leftB span,
+html[data-device="mobile"] .leftBB span {
+    font-size: 10px;
+    padding: 4px;
+}
+
+.centerB span:last-of-type,
+.centerBB span:last-of-type,
+.endB span:last-of-type,
+.endBB span:last-of-type,
+.leftB span:last-of-type,
+.leftBB span:last-of-type {
+    border: none;
+}
+
+.centerB span:nth-child(2n),
+.centerBB span:nth-child(2n),
+.collorsList:nth-child(2n),
+.endB span:nth-child(2n),
+.endBB span:nth-child(2n),
+.leftB span:nth-child(2n),
+.leftBB span:nth-child(2n) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.centerBB span:nth-child(1n)::before {
+    content: "";
+    position: absolute;
+    left: 25%;
+    top: -1px;
+    width: 50%;
+    height: 1px;
+    pointer-events: none;
+    background: #fff;
+}
+
+.centerB span:nth-child(1n)::after,
+.centerBB span:nth-child(1n)::after {
+    content: "";
+    position: absolute;
+    right: -2px;
+    top: calc(100% - 2px);
+    width: 4px;
+    height: 4px;
+    pointer-events: none;
+    background: silver;
+    border-radius: 50%;
+    outline: silver solid 1px;
+    outline-offset: 2px;
+}
+
+.endBB {
+    z-index: 2;
+    border-radius: 0 0 8px 8px;
+}
+
+/* .leftBB::before,
+.leftB::before {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    transform: translateY(-50%);
+    background: url("/calendar.svg") center/contain no-repeat;
+} */
+
+.centerBB::after,
+.centerBB::before,
+.centerB::after,
+.centerB::before {
+    transform: translateY(-50%);
+    content: "";
+    top: 50%;
+    position: absolute;
+}
+
+/* .centerBB::before,
+.centerB::before {
+    left: -22px;
+    width: 2px;
+    height: 40px;
+    transform: translateY(-50%);
+    background: center/contain #a2a2a2;
+    border-radius: 4px;
+    z-index: 1;
+} */
+
+/* .centerBB::after,
+.centerB::after {
+    left: -29px;
+    width: 16px;
+    height: 16px;
+    z-index: 2;
+    transform: translateY(-50%);
+    background: url("/sun.svg") 0 0 / contain no-repeat;
+}
+
+.endBB::after,
+.endB::after {
+    content: "";
+    position: absolute;
+    left: -32px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    transform: translateY(-50%);
+    background: url("/moon_and_stars.svg") center/contain no-repeat;
+} */
+
+.centerBB span:last-of-type::after {
+    display: none;
+}
+
+.leftBB {
+    box-shadow: 0 -2px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+.endBB {
+    box-shadow: 0 2px 3px 0px rgba(0, 0, 0, 0.4);
+}
+
+html[data-device="mobile"] .leftBB::before,
+html[data-device="mobile"] .centerBB::after,
+html[data-device="mobile"] .centerBB::before,
+html[data-device="mobile"] .endBB::after {
+    display: none;
+}

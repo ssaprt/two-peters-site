@@ -1,0 +1,30 @@
+.content {
+    display: flex;
+    flex-direction: column;
+    align-content: start;
+}
+
+.tag {
+    letter-spacing: 1.05px;
+}
+
+.space {
+    height: 12px;
+}
+
+.tagA {
+    color: var(--global-color-link);
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    gap: 4px;
+    align-items: center;
+    margin: 4px 0px;
+    font-weight: 300;
+}
+
+.tagA svg {
+    fill: var(--global-color-link);
+    width: 20px;
+    height: 20px;
+}

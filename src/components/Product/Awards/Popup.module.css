@@ -1,0 +1,116 @@
+.popup {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-radius: inherit;
+    top: 0;
+    left: 0;
+}
+
+.popup::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: -1;
+    background: var(--pallet-from-site) repeat;
+    background-size: 120px 120px;
+    background-position: center center;
+    -webkit-mask: var(--pallet-from-site);
+    mask: var(--pallet-from-site);
+    background-color: var(--global-neutral-color);
+    -webkit-mask-size: 120px 120px;
+    mask-size: 120px 120px;
+    -webkit-mask-repeat: repeat;
+    mask-repeat: repeat;
+}
+
+.popup button {
+    border-radius: 4px;
+}
+
+.topHeader {
+    z-index: 9;
+    box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.8);
+    background: var(--default-backdrop-color);
+    border: 1px solid var(--default-backdrop-color);
+    border-radius: 8px;
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    position: relative;
+    overflow: hidden;
+}
+
+.topHeader > span {
+    margin-left: 12px;
+    letter-spacing: 1.1px;
+    font-size: 14px;
+    font-weight: 300;
+    color: var(--global-color-link);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+.overlayScroll {
+    display: flex;
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    padding: 0px;
+    border-radius: inherit;
+}
+
+.scrollBox {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: auto;
+    flex-direction: column;
+    border-radius: inherit;
+    margin: 4px;
+    padding: 0px;
+}
+
+.item {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 20px;
+    margin: 20px 0px;
+    padding: 20px;
+}
+
+.award {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    margin: 10px 0px;
+}
+
+.award span {
+    font-weight: 400;
+    color: var(--global-color-link);
+    text-shadow: 0px 1px 1px rgba(0, 0, 0, 0.55);
+}
+
+.imgAward {
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+.fair > div {
+    margin: 0px;
+}

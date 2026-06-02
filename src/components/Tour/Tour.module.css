@@ -1,0 +1,91 @@
+.tour {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    position: relative;
+    flex: 1;
+    padding-top: 20px;
+    overflow: visible;
+    --b-r: 60px;
+}
+
+html[data-device="mobile"] .tour {
+    width: 100%;
+    min-width: unset;
+    --b-r: 30px;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    position: relative;
+    gap: 20px;
+    width: 100%;
+    max-width: 700px;
+}
+
+.section {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+    gap: 6px;
+    width: 100%;
+}
+
+html[data-device="mobile"] .section {
+    align-items: center;
+}
+
+.lineTop {
+    color: var(--global-color-link);
+    padding: 4px 12px;
+    /* border: 2px outset var(--global-color-link);
+    background: var(--global-wine-color); */
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-radius: 60px;
+    gap: 4px;
+    position: relative;
+    width: 100%;
+}
+
+.lineTop::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    background: var(--global-color-link);
+    position: relative;
+    border-radius: 50%;
+}
+
+.lineTop::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--global-color-link);
+    position: relative;
+    border-radius: 50%;
+}
+
+.section h3 {
+    color: var(--global-color-link);
+    flex: 1;
+}
+
+.section > *:not(.lineTop) {
+    text-align: center;
+}
+
+.section > *:not(.lineTop)::before {
+    content: "";
+    position: relative;
+    width: 4px;
+    height: 100%;
+    background: var(--global-wine-color);
+    z-index: -1;
+}

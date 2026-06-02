@@ -1,0 +1,135 @@
+.scrollbar {
+    position: fixed;
+
+    top: 0;
+
+    z-index: 99;
+
+    pointer-events: none;
+
+    opacity: 0;
+
+    transition: opacity 0.65s ease;
+}
+
+html[data-device="mobile"] .scrollbar {
+    display: none;
+}
+
+.visible {
+    opacity: 1;
+}
+
+html[data-menu-open="open"] .visible {
+    opacity: 0;
+    transition: opacity 0.13s linear;
+}
+
+html[data-menu-open="close"] .visible {
+    opacity: 1;
+    transition: opacity 0.65s linear;
+}
+
+.track {
+    position: absolute;
+
+    inset: 0;
+    pointer-events: all;
+    border-radius: 999px;
+
+    background: rgba(255, 255, 255, 0.05);
+    box-shadow: 0 0 1px 0px rgba(255, 255, 255, 0.3);
+}
+
+.thumb {
+    position: absolute;
+
+    left: 50%;
+    transform: translateX(-50%) scale(1);
+
+    /* width: calc(100% + 12px); */
+    width: calc(100% - 2px);
+    background: var(--global-color-link);
+    border-radius: 999px;
+    box-sizing: border-box;
+    border: 1px solid var(--global-bg-color);
+    color: var(--global-neutral-color);
+    opacity: 0.5;
+    cursor: pointer;
+
+    pointer-events: auto;
+
+    transform-origin: center;
+}
+
+.thumb svg {
+    display: none;
+}
+/* 
+.thumb::before {
+    content: "";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+    border: 1px solid var(--global-bg-color);
+    transform: translate(-50%, -50%);
+
+    width: 50%;
+    height: calc(100% - 24px);
+
+    border-radius: 999px;
+
+    background: radial-gradient(
+        circle at center,
+        var(--global-color-link) 0%,
+        var(--global-bg-color) 28%,
+        rgba(255, 255, 255, 0.4) 90%,
+        transparent 72%
+    );
+    animation: cometFlow 2s linear infinite;
+
+    background-size: 100% 18px;
+
+    background-repeat: repeat-y;
+
+    filter: blur(0.4px);
+
+    opacity: 0.95;
+}
+
+@keyframes cometFlow {
+    from {
+        background-position-y: 0;
+    }
+
+    to {
+        background-position-y: 18px;
+    }
+}
+
+.thumb svg {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 12px;
+    fill: currentColor;
+    stroke: var(--global-bg-color);
+    stroke-width: 1px;
+}
+
+.thumb .top {
+    transform: translateX(-50%) rotate(-180deg);
+    bottom: calc(100% - 11px);
+}
+
+.thumb .bottom {
+    top: calc(100% - 11px);
+}
+
+.thumb:hover:before {
+    width: 60%;
+    transition: width 0.13s linear;
+} */

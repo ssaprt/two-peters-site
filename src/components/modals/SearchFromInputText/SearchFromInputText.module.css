@@ -1,0 +1,72 @@
+.searcher {
+    position: fixed;
+    z-index: 10000;
+    pointer-events: none;
+    border-radius: 8px;
+    background: var(--global-bg-color);
+    border: 1px solid rgba(255, 255, 255, .05);
+    box-shadow:  0px 0px 8px 0px rgba(0, 0, 0, .8);
+    overflow: hidden;
+    max-height: 0px;
+    transition: .3s max-height linear;
+}
+
+.scroll {
+    display: flex;
+    min-height: 0px;
+    max-height: 100px;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+}
+
+.item {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  background: rgba(255, 255, 255, .05);
+  padding: 4px 8px;
+  width: 100%;
+  font-family: var(--1nth-font);
+  font-size: 12px;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.item:hover {
+  background: rgba(255, 255, 255, .1);
+}
+
+.show {
+    pointer-events: all;
+    animation: show .23s linear forwards;
+}
+
+@keyframes show {
+    0% {
+        opacity: 0;
+        max-height: 0px;
+    }
+
+    100% {
+        opacity: 1;
+        max-height: 160px;
+    }
+}
+
+.hidden {
+    animation: hidden .23s linear forwards;
+}
+
+@keyframes hidden {
+    0% {
+        opacity: 1;
+        max-height: 160px;
+    }
+
+    100% {
+        opacity: 0;
+        max-height: 0px;
+    }
+}

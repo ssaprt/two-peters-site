@@ -1,0 +1,79 @@
+.logo {
+    pointer-events: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    will-change: transform;
+    transform: translateX(-50%) translateY(calc(-1 * var(--y-header)));
+    transition: transform 0.1s linear;
+
+    width: 300px;
+    height: 100%;
+    z-index: 1;
+    color: currentColor;
+}
+
+html[data-device="mobile"] .logo {
+    transition: 0s;
+}
+
+.logo svg {
+    cursor: pointer;
+}
+
+.twoPetersName,
+.circle {
+    fill: currentColor;
+}
+
+/* ? CIRCLE */
+.circle {
+    top: 50px;
+    opacity: var(--opacity);
+    transform-origin: center center;
+    transform: translateY(calc(-1 * var(--y-header))) translateX(-50%)
+        scale(max(0, var(--opacity)));
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+}
+/* ? CIRCLE */
+
+.twoPetersBottom {
+    width: 100%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: center;
+    align-content: center;
+    top: 200px;
+    left: 50%;
+    transform: translateX(-50%) translateY(calc(-1 * var(--top)));
+}
+
+html[data-device="mobile"] .twoPetersBottom {
+    top: 160px;
+}
+
+.twoPetersName {
+    position: relative;
+    width: max(100px, var(--w));
+    height: max(30px, var(--h));
+    opacity: 1;
+    pointer-events: var(--pointer-events);
+}
+
+html[data-device="mobile"] .twoPetersName {
+    width: max(80px, var(--w));
+    height: max(20px, var(--h));
+}
+
+.twoPetersSub {
+    width: var(--wSub);
+    height: var(--hSub);
+    fill: currentColor;
+    opacity: var(--opacity);
+}

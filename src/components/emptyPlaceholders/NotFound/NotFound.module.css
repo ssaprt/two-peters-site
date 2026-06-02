@@ -1,0 +1,33 @@
+.overlay {
+    display: block;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.overlay span {
+    font-family: "Comfortaa", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--global-warning-color);
+    margin-top: 8px;
+    user-select: none;
+}
+
+.overlay svg {
+    margin-top: 20px;
+    width: 80cqmin;
+    height: auto;
+    max-width: 240px;
+    max-height: 240px;
+    object-fit: contain;
+}
+
+.overlay svg path {
+    fill: transparent;
+    stroke: var(--global-warning-color);
+    stroke-width: 1px;
+}

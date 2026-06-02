@@ -1,0 +1,13 @@
+.is-bottle {
+    position: fixed;
+    z-index: 9999999999999999999999999999999999999999999999999999;
+    display: block;
+    width: 20px;
+    height: 32px;
+    background: url("/basket-bottle.png") center/contain no-repeat;
+    transform: rotate(-22deg);
+    pointer-events: none;
+    left: 0;
+    top: 0;
+    opacity: 0.4;
+}

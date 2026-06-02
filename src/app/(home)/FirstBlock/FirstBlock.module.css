@@ -1,0 +1,50 @@
+.block {
+    position: relative;
+    width: 100%;
+    height: inherit;
+    overflow: hidden;
+    background: var(--global-bg-color);
+}
+
+.general {
+    position: absolute;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -150px;
+    z-index: 2;
+    height: 100%;
+    width: 100%;
+
+    opacity: 0.7;
+    background-position: center;
+}
+
+html[data-device="mobile"] .block {
+    min-height: var(--mobile-height);
+}
+html[data-device="mobile"] .general {
+    bottom: -120px;
+    object-fit: contain;
+    width: 100%;
+    -webkit-filter: invert(0%);
+    filter: invert(0%);
+}
+
+.bro {
+    position: absolute;
+    bottom: 0;
+    width: 50%;
+    max-width: 340px;
+    height: auto;
+    object-fit: cover;
+    z-index: 3;
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}

@@ -1,0 +1,123 @@
+.transitionDropDown {
+    /* настройки основного контейнера */
+    --bgPrimaryContainer: none;
+    --bgPrimaryContainerShow: rgba(0, 0, 0, 0.03);
+    --BoxShadowPrimaryContainer: none;
+    --BoxShadowPrimaryContainerShow: 0px 1px 4px 1px rgba(0, 0, 0, 0.498);
+
+    /* титульный блок */
+    --bgTitleBlock: #2b2b2b;
+    --bgTitleBlockShow: none;
+    --BoxShadowTitleBlock: 0 2px 6px 1px rgba(0, 0, 0, 0.4);
+    --BoxShadowTitleBlockShow: none;
+    --colorTitleBlock: var(--global-neutral-color);
+    --colorTitleBlockShow: var(--global-neutral-color);
+    --fillTitleBlockIcon: var(--global-neutral-color);
+    --fillTitleBlockIconShow: var(--global-neutral-color);
+
+    /* контент блок */
+    --bgContentBlock: none;
+    --bgContentBlockShow: none;
+    --BoxShadowContentBlock: none;
+    --BoxShadowContentBlockShow: none;
+
+    /* время анимации */
+    --primaryAnimationTime: 300ms;
+    --secondAnimationTime: calc(var(--primaryAnimationTime) - 50ms);
+
+    flex: 1;
+    height: max-content;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 8px 10px;
+    transition:
+        background var(--secondAnimationTime) ease-in,
+        box-shadow var(--secondAnimationTime) ease-in;
+    background: var(--bgPrimaryContainer);
+}
+
+.active {
+    background: var(--bgPrimaryContainerShow);
+    transition:
+        background var(--secondAnimationTime) ease-in,
+        box-shadow var(--secondAnimationTime) ease-in;
+    box-shadow: var(--BoxShadowPrimaryContainerShow);
+}
+
+.titleBlock {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+    cursor: pointer;
+    background: var(--bgTitleBlock);
+    box-shadow: var(--BoxShadowTitleBlock);
+
+    transition:
+        box-shadow var(--primaryAnimationTime) ease-in,
+        background var(--secondAnimationTime) ease-in;
+}
+
+.active .titleBlock {
+    transition:
+        box-shadow var(--secondAnimationTime) ease-in,
+        background var(--primaryAnimationTime) ease-in;
+    box-shadow: var(--BoxShadowTitleBlockShow);
+    background: var(--bgTitleBlockShow);
+}
+
+.titleBlock span {
+    user-select: none;
+    color: var(--colorTitleBlock);
+    font-size: 14px;
+    font-family: var(--1nth-font);
+    transition: color var(--primaryAnimationTime) ease-in;
+}
+
+.active .titleBlock span {
+    color: var(--colorTitleBlockShow);
+    transition: color var(--secondAnimationTime) ease-in;
+}
+
+.titleBlock svg {
+    fill: var(--fillTitleBlockIcon);
+    transform: rotate(-90deg);
+    transform-origin: center center;
+    transition: transform var(--primaryAnimationTime) ease-in;
+    width: 20px;
+    height: 20px;
+}
+
+.active .titleBlock svg {
+    transition: transform var(--secondAnimationTime) ease-in;
+    transform: rotate(0deg);
+    fill: var(--fillTitleBlockIconShow);
+}
+
+.bodyDropDown {
+    will-change: opacity, height, padding;
+    display: block;
+    opacity: 0;
+    box-shadow: var(--BoxShadowContentBlock);
+    overflow: hidden;
+    margin: 0;
+    padding: 0px 12px;
+    transition:
+        height var(--primaryAnimationTime) ease-in,
+        opacity calc(4 * calc(var(--primaryAnimationTime) / 5)) ease-in;
+    background: var(--bgContentBlock);
+}
+
+.active .bodyDropDown {
+    transition:
+        height var(--primaryAnimationTime) ease-in,
+        opacity var(--secondAnimationTime) ease-in
+            calc(2 * calc(var(--primaryAnimationTime) / 5));
+    opacity: 1;
+    box-shadow: var(var(--BoxShadowContentBlockShow));
+    background: var(--bgContentBlockShow);
+}

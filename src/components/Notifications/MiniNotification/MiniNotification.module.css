@@ -1,0 +1,186 @@
+.manager {
+    position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 1002;
+    height: 100%;
+    overflow: hidden;
+    width: max-content;
+    pointer-events: none;
+}
+
+.scroll {
+    overflow-y: scroll;
+    display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: stretch;
+    position: relative;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    min-height: 0;
+}
+
+.overlay {
+    perspective: 800px;
+    will-change: transform;
+}
+
+.notification {
+    will-change: max-height, margin;
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    width: 240px;
+    position: relative;
+    overflow: visible;
+    border-radius: 4px;
+    transition: margin .3s linear, height .6s ease;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .3);
+    pointer-events: all;
+    user-select: none;
+    border: 1px solid rgba(255, 255, 255, .1);
+
+    animation: show .6s ease-in-out forwards;
+}
+
+@keyframes show {
+    from {
+        transform: translateZ(-100px) rotateX(-15deg);
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+        transform: translateZ(0px) rotateX(0deg);
+    }
+}
+
+.delete {
+    
+    pointer-events: none;
+    transition: margin .3s ease-in-out, height .3s ease;
+    animation: hidden .6s ease-in-out forwards;
+}
+
+@keyframes hidden {
+    from {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 0;
+        height: 0px;
+    margin: 0px;
+    }
+}
+
+
+
+.success {
+    background: var(--success-color);
+    color: var(--success-color);
+}
+
+.success svg, .success .top span {
+    color: var(--success-color);
+    fill: currentColor;
+}
+
+.error {
+    background: var(--danger-color);
+    color: var(--danger-color);
+}
+
+.error svg, .error .top span  {
+    color: var(--danger-color);
+    fill: currentColor;
+}
+
+.warning {
+    background: var(--global-warning-color);
+    color: var(--global-warning-color);
+}
+
+.warning svg, .warning .top span {
+    color: var(--global-warning-color);
+    fill: currentColor;
+}
+
+.top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, .5);
+    padding: 6px;
+    border-radius: inherit;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.top > svg:first-of-type {
+    width: 20px;
+    height: 20px;
+}
+
+.top span {
+    font-size: 12px;
+    font-family: var(--3nth-font);
+}
+
+.close {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    cursor: pointer;
+}
+
+
+.message {
+    padding: 12px 12px;
+    font-size: 12px;
+    font-family: var(--3nth-font);
+    color: var(--global-bg-color);
+}
+/* 
+.overlay .success svg:last-of-type {
+    fill: var(--success-color)
+}
+
+.overlay .error svg:last-of-type  {
+    fill: var(--danger-color);
+}
+
+.overlay .warning svg:last-of-type {
+    fill: var(--global-warning-color);
+} */
+
+.close:hover {
+    opacity: .8;
+}
+
+
+
+.progressBar {
+    height: 6px;
+    flex-shrink: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, .3);
+    position: relative;
+    display: block;
+    animation-name: forDelete;
+    animation-fill-mode: forwards;
+    animation-timing-function: linear;
+}
+
+@keyframes forDelete {
+    to {
+        width: 0;
+    }
+}

@@ -1,0 +1,20 @@
+.title {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    align-items: start;
+    align-content: stretch;
+    position: relative;
+}
+
+.title svg {
+    position: relative;
+    fill: var(--global-neutral-color);
+    display: none;
+}
+
+.title h1 {
+    color: var(--global-neutral-color);
+    font-weight: 300;
+    letter-spacing: 1.2px;
+}

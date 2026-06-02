@@ -1,0 +1,173 @@
+.BreadCrumbs {
+    position: relative;
+    margin: 40px auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.breadCrumbsPuzzles {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.page {
+    background: transparent;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    border: none;
+    justify-content: center;
+    align-items: center;
+    outline: 1px outset transparent;
+    outline-offset: 0px;
+    cursor: pointer;
+    user-select: none;
+    margin: 0 6px;
+    font-family: var(--1nth-font);
+    font-size: 14px;
+    color: var(--global-color-link);
+    border-radius: 50%;
+}
+
+.page:hover {
+    transition: color 0.13s ease-in-out;
+    background: transparent;
+    color: silver;
+    /* outline-offset: 2px;
+    outline-width: 2px;
+    outline-color: var(--global-color-link); */
+}
+
+/* .active {
+    will-change: outline-color, outline-offset, color, outline-width;
+    outline-offset: 2px;
+    outline-width: 2px;
+    outline-color: var(--global-color-link);
+    animation: hide_active .23s ease-in-out forwards;
+    animation-delay: calc(min(calc(.4 * var(--time_animation)), .6s) * .8);
+} */
+/* 
+@keyframes hide_active {
+    from {
+        outline-width: 2px;
+        outline-color: silver;
+    }
+    to {
+        outline-offset: 13px;
+        outline-width: 0px;
+        outline-color: transparent;
+        color: silver;
+    }
+}    */
+
+.active {
+    color: silver;
+}
+
+.active:hover {
+    background: none;
+    outline-offset: 2px;
+    color: silver;
+    outline-color: transparent;
+    cursor: default;
+    outline-width: 2px;
+}
+
+.breadCrumbsArrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    align-content: normal;
+    cursor: pointer;
+    margin: auto 10px;
+}
+
+.breadCrumbsArrow:first-of-type {
+    transform: scale(-1, 1);
+}
+
+.breadCrumbsArrow > svg {
+    width: 16px;
+    height: 16px;
+    stroke-opacity: 1;
+}
+
+.breadCrumbsArrow > svg > path {
+    fill: var(--global-color-link);
+}
+
+.ellipsis {
+    color: var(--global-color-link);
+    font-size: 14px;
+    user-select: none;
+    pointer-events: none;
+}
+
+.disabled {
+    cursor: default;
+    pointer-events: none;
+}
+
+.disabled > svg > path {
+    fill: silver;
+}
+
+.breadCrumbsArrow:first-of-type:hover {
+    transform: scale(-1, 1) scale(1.1);
+    transition: transform 0.13s linear;
+}
+
+.breadCrumbsArrow:hover {
+    transform: scale(1.1);
+    transition: transform 0.13s linear;
+}
+
+.breadCrumbsArrow > span {
+    font-size: 14px;
+    user-select: none;
+    pointer-events: none;
+    color: var(--global-color-link);
+    font-family: var(--1nth-font);
+}
+
+.breadCrumbsArrow.disabled > span {
+    color: silver;
+}
+
+.track {
+    --track-animation-time: min(calc(0.4 * var(--time_animation)), 0.6s);
+
+    border-radius: 50%;
+    position: absolute;
+    display: block;
+    outline: 1px outset silver;
+    cursor: default;
+    background: none;
+    outline-width: 2px;
+    outline-offset: 2px;
+    transition: left var(--track-animation-time) ease;
+}
+
+.next {
+    transform: scale(1);
+    animation: next var(--track-animation-time) ease;
+    animation-play-state: running;
+}
+@keyframes next {
+    50% {
+        transform: scale(1.2);
+        box-shadow: var(--shadow) 0px 5px 0px var(--global-color-link);
+        outline-color: var(--global-color-link);
+    }
+
+    100% {
+        transform: scale(1);
+        box-shadow: var(--shadow) 0px 5px -5px silver;
+        outline-color: silver;
+    }
+}

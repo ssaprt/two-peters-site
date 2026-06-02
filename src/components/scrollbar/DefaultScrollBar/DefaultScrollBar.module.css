@@ -1,0 +1,51 @@
+.defaultScrollBar {
+    position: absolute;
+    display: flex;
+    min-width: 0;
+    z-index: 9;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease-in-out;
+    max-height: 100%;
+}
+
+.visible {
+    opacity: 1;
+    pointer-events: all;
+}
+
+html[data-device="mobile"] .defaultScrollBar {
+    display: none;
+}
+
+.track {
+    position: absolute;
+    display: block;
+    height: 100%;
+    transform: translateX(-50%);
+    left: 50%;
+}
+
+.thumb {
+    top: 0;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%) scaleX(1);
+    cursor: pointer;
+    opacity: 1;
+    transition:
+        transform 0.13s ease-in-out,
+        top 0s ease,
+        box-shadow 0.3s ease-in-out;
+    width: 6px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.thumb:hover {
+    transition:
+        transform 0.13s ease-in-out,
+        top 0.13s ease,
+        box-shadow 0.13s ease-in-out;
+    transform: translateX(-50%) scaleX(1.8);
+}

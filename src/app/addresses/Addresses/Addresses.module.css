@@ -1,0 +1,35 @@
+.addresses {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+
+    padding-top: 100px;
+}
+
+.close {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 14px;
+    height: 14px;
+    fill: var(--global-color-link);
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.close:hover {
+    opacity: 0.6;
+}
+
+.search {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    fill: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+}

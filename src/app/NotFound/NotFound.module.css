@@ -1,0 +1,33 @@
+.overlayNotFound {
+    position: relative;
+    height: 100dvh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.text {
+    color: var(--global-color-link);
+}
+
+.dialog {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    gap: 20px;
+    max-width: 300px;
+}
+
+.block {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+}
+
+.answer {
+    color: var(--global-neutral-color);
+}

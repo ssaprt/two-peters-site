@@ -1,0 +1,49 @@
+.title {
+    position: relative;
+    color: #e2dfcf;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-style: normal;
+    text-shadow: 0 4px 6px #000;
+    letter-spacing: 2px;
+    width: 100%;
+}
+
+/* .logo {
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    background: inherit;
+    position: absolute;
+    left: -60px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo svg {
+    width: 80%;
+    height: 80%;
+    fill: #e2dfcf;
+}
+
+.logo::after,
+.logo::before {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 90px;
+    height: 90px;
+    position: absolute;
+    content: "";
+}
+
+.logo::before {
+    display: block;
+
+    opacity: 1;
+    left: -12px;
+    z-index: 2;
+} */

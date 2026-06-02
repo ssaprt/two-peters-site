@@ -1,0 +1,51 @@
+.fullVideoBlock {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fullVideoBlock video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.poster {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.poster img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center bottom;
+}
+
+/* html[data-device="mobile"] .poster img {
+    object-position: center b;
+} */
+
+.content {
+    z-index: 2;
+}
+
+.startHide {
+    animation: startHide 0.64s linear forwards;
+    animation-delay: 2.5s;
+    opacity: 1;
+}
+
+@keyframes startHide {
+    100% {
+        opacity: 0;
+    }
+}

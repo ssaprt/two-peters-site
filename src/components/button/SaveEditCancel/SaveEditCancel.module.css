@@ -1,0 +1,171 @@
+.editButton, .cancelButton, .saveButton, .infoButton, .tematical {
+    outline: none;
+    cursor: pointer;
+    border-radius: 24px;
+    margin: 4px;
+    padding: 4px 6px;
+    
+    border: none;
+    position: relative;
+    display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+    box-shadow: 0px 2px 6px -2px rgba(0, 0, 0, .4);
+    transform: rotateX(0deg);
+    opacity: 1;
+    transition: margin .13s linear, transform .13s ease-out, opacity .13s ease-out;
+}
+
+.editButton > span, .cancelButton > span, .saveButton > span, .infoButton > span, .tematical > span {
+  font-size: 12px;
+  flex: 0 1 auto;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.editButton.visible, .cancelButton.visible, .saveButton.visible, .infoButton.visible, .tematical.visible {
+    
+    opacity: 0;
+}
+
+.editButton::before, .cancelButton::before, .saveButton::before, .infoButton::before, .tematical::before {
+    content: '';
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+    position: absolute;
+    display: block;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: inherit;
+    pointer-events: none;
+    outline: 3px outset;
+    outline-offset: 1px;
+    
+    opacity: 0;
+    transition: opacity .13s ease-out, width .13s ease-out, height .13s ease-out;
+}
+
+.editButton:hover::before, .cancelButton:hover::before, .saveButton:hover::before, .infoButton:hover::before, .tematical:hover::before {
+    opacity: 1;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+.editButton:hover, .cancelButton:hover, .saveButton:hover, .infoButton:hover, .tematical:hover {
+    box-shadow: 0px 6px 6px -2px rgba(0, 0, 0, .4);
+    transition: box-shadow .13s linear;
+}
+
+.editButton:active, .cancelButton:active, .saveButton:active, .infoButton:active, .tematical:active {
+    box-shadow: 0px 3px 6px -2px rgba(0, 0, 0, .4), 
+    inset 0px 0px 6px 3px rgba(0, 0, 0, .2);
+    transition: box-shadow .13s ease-out;
+}
+
+.editButton:disabled, .editButton:disabled::before, 
+.cancelButton:disabled, .cancelButton:disabled::before, 
+.saveButton:disabled, .saveButton:disabled::before,
+ .infoButton:disabled, .infoButton:disabled::before,
+  .tematical:disabled, .tematical:disabled::before {
+    opacity: .4;
+    cursor: not-allowed;
+    background: grey;
+    outline-color: grey;
+}
+
+ .tematical:disabled, .tematical:disabled::before {
+    opacity: .7;
+    cursor: not-allowed;
+    background: transparent;
+    outline: 1px solid grey;
+    color: grey;
+}
+
+.tematical:disabled:hover {
+    background: none;
+}
+
+
+
+.editButton {
+  background: var(--default-backdrop-color);
+  color: var(--global-neutral-color);
+}
+
+.editButton::before {
+    outline-color: var(--default-backdrop-color);
+}
+
+.cancelButton {
+  background: var(--danger-color);
+  color: var(--global-neutral-color);
+}
+
+.cancelButton::before {
+    outline-color: var(--danger-color);
+}
+
+.saveButton {
+  background: var(--success-color);
+  color: var(--global-bg-color);
+}
+
+.saveButton::before {
+    outline-color: var(--success-color);
+}
+
+.infoButton {
+  background: #a67a0c;
+  color: var(--global-bg-color);
+}
+
+.infoButton::before {
+    outline-color: #a67a0c;
+}
+
+.tematical {
+    box-shadow: none;
+    background: none;
+    transform: background-color .07s linear;
+    color: var(--global-color-link);
+}
+
+.tematical:hover {
+    background: rgba(204, 172, 90, 0.15);
+    background: radial-gradient(circle farthest-side at top left, rgba(204, 172, 90, 0.15) 55%, rgba(237, 220, 123, 0.15) 100%);
+}
+  
+  .tematical::before {
+      outline-color: var(--global-color-link);
+  }
+
+  
+.loading {
+    left: -20px;
+    margin-right: 6px;
+    transform: scale(0);
+    opacity: 0;
+    transition: left .13s linear, transform .13s linear, opacity .13s linear;
+}
+
+
+.editButton svg, .cancelButton svg, .saveButton svg, .infoButton svg, .tematical svg {
+    min-width: 16px;
+    min-height: 16px;
+    max-width: auto;
+    max-height: fit-content;
+    display: block;
+}
+
+.tematical > svg {
+    fill: var(--global-color-link);
+    transition: fill .07s linear, stroke .07s linear;
+    stroke: var(--global-color-link);
+}
