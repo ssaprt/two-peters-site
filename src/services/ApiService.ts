@@ -1,5 +1,7 @@
 const API_URL =
-    typeof window === "undefined" ? "http://localhost/api" : "/backend";
+    typeof window === "undefined"
+        ? process.env.API_URL
+        : process.env.NEXT_PUBLIC_API_URL;
 
 type ApiResponse<T> = {
     success: boolean;
@@ -12,6 +14,7 @@ class ApiService {
         controller: string,
         action: string,
     ): Promise<ApiResponse<T>> {
+        console.log(`${API_URL}/${controller}/${action}`);
         const res = await fetch(`${API_URL}/${controller}/${action}`, {
             method: "GET",
             cache: "no-store",

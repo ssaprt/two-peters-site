@@ -40,7 +40,9 @@ export default async function RootLayout({
                 <App
                     isMobile={isMobile}
                     collection={
-                        categories!.length === 1 ? categories![0].id : 0
+                        Array.isArray(categories) && categories.length === 1
+                            ? categories[0].id
+                            : 0
                     }
                 >
                     {children}
