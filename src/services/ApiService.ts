@@ -14,13 +14,17 @@ class ApiService {
         controller: string,
         action: string,
     ): Promise<ApiResponse<T>> {
-        console.log(`${API_URL}/${controller}/${action}`);
         const res = await fetch(`${API_URL}/${controller}/${action}`, {
             method: "GET",
         });
 
         if (!res.ok) {
-            throw new Error("API Error");
+            const text = await res.text();
+
+            console.error("Status:", res.status);
+            console.error("Response:", text);
+
+            throw new Error(`API Error ${res.status}`);
         }
 
         return res.json();
