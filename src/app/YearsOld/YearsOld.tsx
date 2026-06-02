@@ -3,6 +3,7 @@ import StopIcon from "@/assets/icons/common/stop.svg";
 import { ButtonWithSvg } from "@/components/button/buttonWithSvg/buttonWithSvg";
 import { TitleSection } from "@/components/titles/TitleWithLogo/TitleSection";
 import { useRef } from "react";
+import { createPortal } from "react-dom";
 import styles from "./YearsOld.module.css";
 
 export const YearsOld = ({ onConfirm }: { onConfirm: () => void }) => {
@@ -12,7 +13,7 @@ export const YearsOld = ({ onConfirm }: { onConfirm: () => void }) => {
             onConfirm();
         }
     };
-    return (
+    return createPortal(
         <div
             className={styles.overlayAge}
             onAnimationEnd={handleEndAnimation}
@@ -45,6 +46,7 @@ export const YearsOld = ({ onConfirm }: { onConfirm: () => void }) => {
                     />
                 </div>
             </div>
-        </div>
+        </div>,
+        document.body,
     );
 };
