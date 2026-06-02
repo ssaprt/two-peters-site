@@ -1,4 +1,4 @@
-import { universalServices } from "../../../services/ApiService";
+import { apiService } from "@/services/ApiService";
 
 export type GeoType = {
     id: number;
@@ -10,9 +10,9 @@ export type GeoType = {
 class GeoService {
     async getGeoInfo(searchValue: string): Promise<GeoType[] | []> {
         try {
-            const response = await universalServices.getData<{
+            const response = await apiService.postData<{
                 cities: GeoType[];
-            }>(`geo`, "get-cities", { search: searchValue }, "get");
+            }>(`geo`, "get-cities", { search: searchValue });
 
             if (response.success && response.data) {
                 if (response.data.cities.length > 0) {

@@ -16,6 +16,9 @@ class ApiService {
     ): Promise<ApiResponse<T>> {
         const res = await fetch(`${API_URL}/${controller}/${action}`, {
             method: "GET",
+            next: {
+                revalidate: 3600, // 1 час
+            },
         });
 
         if (!res.ok) {
@@ -37,7 +40,9 @@ class ApiService {
     ): Promise<ApiResponse<T>> {
         const res = await fetch(`${API_URL}/${controller}/${action}`, {
             method: "POST",
-            cache: "no-store",
+            next: {
+                revalidate: 3600, // 1 час
+            },
             headers: {
                 "Content-Type": "application/json",
             },
