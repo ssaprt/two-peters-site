@@ -42,7 +42,6 @@ html[data-device="mobile"] .section {
 
 .lineTop {
     color: var(--global-color-link);
-    padding: 4px 12px;
     /* border: 2px outset var(--global-color-link);
     background: var(--global-wine-color); */
     display: flex;
@@ -63,7 +62,8 @@ html[data-device="mobile"] .section {
     border-radius: 50%;
 }
 
-.lineTop::after {
+.lineTop::after,
+.lineTop::before {
     content: "";
     flex: 1;
     height: 2px;
@@ -74,18 +74,14 @@ html[data-device="mobile"] .section {
 
 .section h3 {
     color: var(--global-color-link);
+    background: var(--global-wine-color);
+    padding: 4px 12px;
+    border-radius: 24px;
     flex: 1;
+    margin: 0 auto;
+    width: 100%;
 }
 
 .section > *:not(.lineTop) {
     text-align: center;
-}
-
-.section > *:not(.lineTop)::before {
-    content: "";
-    position: relative;
-    width: 4px;
-    height: 100%;
-    background: var(--global-wine-color);
-    z-index: -1;
 }

@@ -116,7 +116,8 @@ body::before {
     left: 0;
     right: 0;
     height: 8px;
-    background-image: url("/border.png");
+    width: 8px;
+    background-image: url("/border/border.svg");
     background-repeat: repeat-x;
     background-size: auto 8px;
 }

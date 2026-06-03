@@ -1,3 +1,4 @@
+import { useAppContext } from "@/app/context/AppContext";
 import { Status } from "@/components/Fair/Status/Status";
 import { Title } from "@/components/Fair/Title/Title";
 import { DefaultObserveImage } from "@/components/image/DefaultObserveImage/DefaultObserveImage";
@@ -7,6 +8,7 @@ import { ContentFair } from "./ContentFair/ContentFair";
 import styles from "./FairContainer.module.css";
 
 export const FairContainer = ({ fair }: { fair: FairInterface }) => {
+    const { isMobile } = useAppContext();
     return (
         <div
             className={clsx(
@@ -34,7 +36,7 @@ export const FairContainer = ({ fair }: { fair: FairInterface }) => {
                         controls: true,
                     }}
                     image={{
-                        preview: true,
+                        preview: !isMobile ? true : false,
                     }}
                     src_image={getFairImage(fair.id, fair.img_article)}
                     fallbackSrc={DEFAULT_EXAMPLE}

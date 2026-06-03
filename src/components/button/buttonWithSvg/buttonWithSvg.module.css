@@ -13,7 +13,23 @@
     /* border: 2px outset var(--global-color-link); */
     box-shadow: 0 4px 2px 2px rgba(0, 0, 0, 0.5);
     background: var(--global-wine-color);
-    transition: box-shadow 200ms cubic-bezier(0.3, 0.7, 0.4, 1);
+}
+
+.click {
+    box-shadow: 0 4px 2px 2px rgba(0, 0, 0, 0.5);
+    animation: click 400ms cubic-bezier(0.3, 0.7, 0.4, 1) forwards;
+}
+
+@keyframes click {
+    50% {
+        box-shadow:
+            0 4px 2px -2px rgba(0, 0, 0, 0.6),
+            inset 0 4px 2px 2px rgba(0, 0, 0, 0.5);
+    }
+
+    100% {
+        box-shadow: 0 4px 2px 2px rgba(0, 0, 0, 0.5);
+    }
 }
 
 .button::before {
@@ -26,23 +42,24 @@
     height: calc(100% + 6px);
     background: #850831;
     border-radius: inherit;
-    transition:
-        top 200ms cubic-bezier(0.3, 0.7, 0.4, 1),
-        height 200ms cubic-bezier(0.3, 0.7, 0.4, 1);
 }
 
-.button:active:before {
-    height: calc(100% + 4px);
+.button.click::before {
+    top: -2px;
+    height: calc(100% + 6px);
+    animation: clickBefore 400ms cubic-bezier(0.3, 0.7, 0.4, 1) forwards;
 }
 
-.button:active {
-    box-shadow:
-        0 4px 0px 0px rgba(0, 0, 0, 0.5),
-        inset 0 4px 2px 0px rgba(0, 0, 0, 0.5);
-}
+@keyframes clickBefore {
+    50% {
+        top: -2px;
+        height: calc(100% + 8px);
+    }
 
-.button:hover {
-    outline-offset: 0px;
+    100% {
+        top: -2px;
+        height: calc(100% + 6px);
+    }
 }
 
 .icon {

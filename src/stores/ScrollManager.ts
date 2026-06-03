@@ -33,11 +33,7 @@ class ScrollManager {
     init(lenis: Lenis, wrapper: HTMLDivElement, isMobile: boolean) {
         this.lenis = lenis;
         this.wrapper = wrapper;
-        this.SNAP_GUARD = Number(
-            isMobile
-                ? wrapper.getBoundingClientRect().height
-                : (wrapper.getBoundingClientRect().height * 0.8).toFixed(0),
-        );
+        this.SNAP_GUARD = Number(isMobile ? 350 : 150);
         this.isMobile = isMobile;
         if (isMobile) {
             this.SNAP_DURATION = 0.9;

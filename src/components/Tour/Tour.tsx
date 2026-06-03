@@ -11,11 +11,6 @@ export const Tour = ({ tour }: { tour: T }) => {
     console.log(tour);
     return (
         <div className={styles.tour}>
-            <EmblaCarousel
-                data-lenis-prevent
-                slides={tour.images.map((img) => getTourImageSrc(img, tour.id))}
-                options={{ loop: true }}
-            />
             <div className={styles.content}>
                 <div className={styles.section}>
                     <div
@@ -30,6 +25,14 @@ export const Tour = ({ tour }: { tour: T }) => {
                         {tour.title}
                     </h3>
                 </div>
+                <EmblaCarousel
+                    data-lenis-prevent
+                    slides={tour.images.map((img) =>
+                        getTourImageSrc(img, tour.id),
+                    )}
+                    options={{ loop: true }}
+                />
+
                 <div className={styles.section}>
                     <div
                         className={clsx(
@@ -44,11 +47,26 @@ export const Tour = ({ tour }: { tour: T }) => {
                     </h3>
                 </div>
 
+                <br />
+
+                <div className={styles.section}>
+                    <div
+                        className={clsx(
+                            styles.lineTop,
+                            "tag-font text-[10px] md:text-[12px] lg:text-[13px]",
+                        )}
+                    >
+                        Сэты
+                    </div>
+                </div>
+
                 {tour.blocks
                     .filter((block) => block.type === "tour")
                     .map((block) => (
                         <TourSet key={block.id} set={block} />
                     ))}
+
+                <br />
 
                 <div className={styles.section}>
                     <div

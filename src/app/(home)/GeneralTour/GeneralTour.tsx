@@ -120,8 +120,6 @@ export const GeneralTour = ({
                 <div className={clsx(styles.section, styles.lastSection)}>
                     <div className={styles.imgs}>
                         <div className={styles.img}>
-                            {/* <div className="pseudo-border-vertical" />
-                            <div className="pseudo-border-horizontal" /> */}
                             <DefaultObserveImage
                                 alt="Два Петра - проведение туров по собственнйо винодельне, уникальный дегустационный опыт и посещение локаций в Крыму"
                                 src_image={getImageGeneralTour(
