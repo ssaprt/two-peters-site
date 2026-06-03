@@ -22,14 +22,14 @@ export const Popup = observer(
         const timerRef = useRef<NodeJS.Timeout | null>(null);
 
         useEffect(() => {
-            utilsData.setWaiting(true);
+            utilsData?.setWaiting(true);
             timerRef.current = setTimeout(() => {
-                utilsData.setWaiting(false);
+                utilsData?.setWaiting(false);
             }, 700);
         }, []);
 
         return (
-            modalData.openModal &&
+            modalData?.openModal &&
             createPortal(
                 <OverlayForNodeContent
                     style={{
@@ -37,7 +37,7 @@ export const Popup = observer(
                         height: "90dvh",
                         maxWidth: "920px",
                     }}
-                    utilsData={utilsData}
+                    utilsData={utilsData!}
                     modalData={modalData}
                 >
                     <div className={styles.popup}>
@@ -48,7 +48,9 @@ export const Popup = observer(
                                     : "Файлы cookie"}
                             </span>
                             <TematicalColorButton
-                                onClick={() => modalData.isHide()}
+                                onClick={() => {
+                                    modalData.isHide();
+                                }}
                             >
                                 Закрыть
                             </TematicalColorButton>

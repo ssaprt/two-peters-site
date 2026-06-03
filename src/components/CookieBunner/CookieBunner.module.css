@@ -1,0 +1,65 @@
+.cookieBunner {
+    width: 100vw;
+    height: auto;
+    position: fixed;
+    bottom: max(0px, var(--b));
+    left: 0;
+    background-color: #00000071;
+    gap: 8px;
+    align-items: center;
+    justify-content: space-between;
+    display: flex;
+    z-index: 1000;
+    user-select: none;
+    padding: 4px 8px;
+    backdrop-filter: blur(4px);
+    border-top: 1px solid rgb(60, 60, 60);
+}
+
+.hide {
+    animation: hide 0.5s ease-in-out forwards;
+}
+
+@keyframes hide {
+    100% {
+        opacity: 0;
+        backdrop-filter: blur(180px);
+    }
+}
+
+.cookieBunner div {
+    display: flex;
+    flex-direction: row;
+    gap: 3px;
+    align-items: center;
+}
+
+.cookieBunner div span {
+    font-size: 12px;
+    color: var(--global-neutral-color);
+}
+
+.button:hover {
+    opacity: 0.8;
+}
+
+.more {
+    font-size: 12px;
+    color: var(--global-color-link);
+    text-decoration: underline;
+}
+
+.accept {
+    color: var(--global-color-link);
+    background: var(--global-wine-color);
+    letter-spacing: 1.1px;
+    padding: 4px 6px;
+    position: relative;
+    margin: 2px;
+    font-size: 12px;
+    font-family: "Comfortaa", sans-serif;
+    font-weight: 300;
+    border-radius: 2px;
+    border: 1px double rgba(255, 255, 255, 0);
+    transition: 0.13s ease-in-out;
+}

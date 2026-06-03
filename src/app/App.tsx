@@ -1,5 +1,6 @@
 "use client";
 
+import { CookieBunner } from "@/components/CookieBunner/CookieBunner";
 import { Footer } from "@/components/layout/Footer/Footer";
 import { Header } from "@/components/layout/Header/Header";
 import { DefaultLoader } from "@/components/loaders/DefaultLoader/DefaultLoader";
@@ -48,6 +49,7 @@ export const App = observer(({ isMobile, children, collection }: Props) => {
                 collection,
             }}
         >
+            <CookieBunner />
             <AgeGateModal />
             <Tooltip />
             <Header />

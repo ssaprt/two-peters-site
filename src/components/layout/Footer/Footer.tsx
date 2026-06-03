@@ -1,8 +1,6 @@
 import { useAppContext } from "@/app/context/AppContext";
 import Logo from "@/assets/icons/logo/two-peters-name.svg";
-import { useOperationModal } from "@/hooks/useOperationModal/useOperationModal";
-import { FullOverlayModalsControl } from "@/stores/FullOverlayModalsControl";
-import { WaitingUtils } from "@/stores/WaitingUtils";
+import { useFooterModal } from "@/hooks/useFooterModal/useFooterModal";
 import clsx from "clsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -17,9 +15,7 @@ export const Footer = () => {
     );
     const router = useRouter();
     const timerRef = useRef<NodeJS.Timeout | null>(null);
-    const modalData = useRef(new FullOverlayModalsControl()).current;
-    const utilsData = useRef(new WaitingUtils()).current;
-    const data = useOperationModal(utilsData, modalData);
+    const { modalData, utilsData } = useFooterModal();
 
     const handleClick = (e: React.MouseEvent, href: string) => {
         if (isMobile) return;
@@ -104,16 +100,16 @@ export const Footer = () => {
                     <span
                         onClick={() => {
                             setType("cookie");
-                            data.modalData.isOpen();
+                            modalData.isOpen();
                         }}
                         className={clsx(styles.linkAdditional, "link-font")}
                     >
-                        Файлы cookies
+                        Файлы cookie
                     </span>
                     <span
                         onClick={() => {
                             setType("confidentiality");
-                            data.modalData.isOpen();
+                            modalData.isOpen();
                         }}
                         className={clsx(styles.linkAdditional, "link-font")}
                     >
@@ -121,11 +117,7 @@ export const Footer = () => {
                     </span>
                 </div>
             </div>
-            <Popup
-                type={type}
-                modalData={data.modalData}
-                utilsData={data.utilsData}
-            />
+            <Popup type={type} modalData={modalData} utilsData={utilsData} />
         </div>
     );
 };
