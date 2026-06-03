@@ -78,13 +78,14 @@
 .content {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 8px;
 }
 
 .links {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: flex-end;
 }
 
 .link {
@@ -122,8 +123,34 @@
     opacity: 0.8;
 }
 
+@keyframes back {
+    0% {
+        width: calc(100% + 8px);
+    }
+    100% {
+        width: 0%;
+    }
+}
+
 .link:hover {
     border-radius: 4px;
     background: var(--global-bg-color);
     transition: background 0.43s ease-in-out;
+}
+
+.additionalInfo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 4px;
+    padding: 0px 4px;
+}
+
+.linkAdditional {
+    font-size: 10px;
+    color: var(--global-neutral-color);
+}
+
+.linkAdditional:hover {
+    color: var(--global-default-color-text);
 }

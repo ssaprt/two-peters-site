@@ -12,6 +12,7 @@ import { FullOverlayModalsControl } from "@/stores/FullOverlayModalsControl";
 import { WaitingUtils } from "@/stores/WaitingUtils";
 import clsx from "clsx";
 import Link from "next/link";
+import { useRef } from "react";
 import { DefaultObserveImage } from "../image/DefaultObserveImage/DefaultObserveImage";
 import { WorkTime } from "../worktime/WorkTime";
 import styles from "./AddressComponent.module.css";
@@ -26,10 +27,9 @@ export const AddressComponent = ({
     general?: boolean;
 }) => {
     const { timeStore, isMobile } = useAppContext();
-    const { modalData, utilsData } = useOperationModal(
-        new WaitingUtils(),
-        new FullOverlayModalsControl(),
-    );
+    const modalData = useRef(new FullOverlayModalsControl()).current;
+    const utilsData = useRef(new WaitingUtils()).current;
+    const data = useOperationModal(utilsData, modalData);
 
     if (!timeStore.getTime) return null;
 
@@ -73,7 +73,7 @@ export const AddressComponent = ({
                     >
                         <div
                             className={styles.ifairs}
-                            onClick={() => modalData.isOpen()}
+                            onClick={() => data.modalData.isOpen()}
                         >
                             <IconFairs />
                         </div>
@@ -117,8 +117,8 @@ export const AddressComponent = ({
             </div>
             {address.fairs_ids.length > 0 && (
                 <Popup
-                    modalData={modalData}
-                    utilsData={utilsData}
+                    modalData={data.modalData}
+                    utilsData={data.utilsData}
                     address={address}
                 />
             )}

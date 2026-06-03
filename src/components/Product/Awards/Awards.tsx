@@ -4,21 +4,21 @@ import { FullOverlayModalsControl } from "@/stores/FullOverlayModalsControl";
 import { layoutStore } from "@/stores/LayoutStore";
 import { WaitingUtils } from "@/stores/WaitingUtils";
 import Image from "next/image";
+import { useRef } from "react";
 import styles from "./Awards.module.css";
 import { ButtonAction } from "./ButtonAction";
 import { Popup } from "./Popup";
 
 export const Awards = ({ product }: { product: ProductInterface }) => {
-    const { modalData, utilsData } = useOperationModal(
-        new WaitingUtils(),
-        new FullOverlayModalsControl(),
-    );
+    const modalData = useRef(new FullOverlayModalsControl()).current;
+    const utilsData = useRef(new WaitingUtils()).current;
+    const data = useOperationModal(utilsData, modalData);
     if (product.awards === null) return null;
     return (
         <>
             <div
                 className={styles.buttonAwards}
-                onClick={() => modalData.isOpen()}
+                onClick={() => data.modalData.isOpen()}
             >
                 <div className={styles.awardList}>
                     {product.awards.map((award, i) => (
@@ -45,8 +45,8 @@ export const Awards = ({ product }: { product: ProductInterface }) => {
                 <ButtonAction awards={product.awards} />
             </div>
             <Popup
-                utilsData={utilsData}
-                modalData={modalData}
+                utilsData={data.utilsData}
+                modalData={data.modalData}
                 awards={product.awards}
             />
         </>
