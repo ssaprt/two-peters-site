@@ -10,6 +10,7 @@ export default async function Home() {
     const generalFair = await getGeneralFair();
     const firstPartAddress = await getGeneralAddress();
     const generalTour = await getGeneralTour();
+    console.log(generalTour);
 
     return (
         <>
