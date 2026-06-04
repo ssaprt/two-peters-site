@@ -1,8 +1,11 @@
+import { useAppContext } from "@/app/context/AppContext";
 import Pallet from "@/assets/icons/pages/home/back-plate.svg";
 import clsx from "clsx";
 import Link from "next/link";
 import styles from "./TwoBlock.module.css";
 export const TwoBlock = () => {
+    const { collection } = useAppContext();
+
     return (
         <div className={styles.content}>
             <h4
@@ -28,7 +31,9 @@ export const TwoBlock = () => {
                 Винная коллекция
             </h4>
             <Link
-                href="/collection"
+                href={
+                    "/collection" + (collection === 1 ? `/${collection}` : "")
+                }
                 className={clsx(
                     styles.link,
                     `

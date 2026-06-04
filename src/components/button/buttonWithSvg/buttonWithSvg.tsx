@@ -1,4 +1,3 @@
-import { useAppContext } from "@/app/context/AppContext";
 import DefaultIcon from "@/assets/icons/common/eye.svg";
 import clsx from "clsx";
 import Link from "next/link";
@@ -25,7 +24,6 @@ export const ButtonWithSvg = ({
     style,
     styleIcon,
 }: Props) => {
-    const { isMobile } = useAppContext();
     const router = useRouter();
     const refButton = useRef<HTMLAnchorElement | HTMLButtonElement>(null);
     const timeOutClick = useRef<NodeJS.Timeout | null>(null);
@@ -69,7 +67,7 @@ export const ButtonWithSvg = ({
                     timeOutClick.current = setTimeout(() => {
                         refButton.current?.classList.remove(styles.click);
                         router.push(href);
-                    }, 400);
+                    }, 300);
                 }}
             >
                 {content}
@@ -93,7 +91,7 @@ export const ButtonWithSvg = ({
                 timeOutClick.current = setTimeout(() => {
                     refButton.current?.classList.remove(styles.click);
                     onClick?.();
-                }, 1000);
+                }, 300);
             }}
             style={style}
         >

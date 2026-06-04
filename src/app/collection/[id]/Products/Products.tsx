@@ -13,7 +13,12 @@ export const Products = ({
     return (
         <div className={styles.overlay}>
             {products.map((product, i) => (
-                <Product key={i} category={category} product={product} />
+                <Product
+                    index={i}
+                    key={i}
+                    category={category}
+                    product={product}
+                />
             ))}
         </div>
     );

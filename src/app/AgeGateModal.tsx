@@ -8,6 +8,7 @@ import { YearsOld } from "./YearsOld/YearsOld";
 
 export function AgeGateModal() {
     const [isOpen, setIsOpen] = useState(false);
+    const [success, setSuccess] = useState(false);
 
     useEffect(() => {
         const verified = document.cookie
@@ -23,10 +24,15 @@ export function AgeGateModal() {
         const result = await apiService.postData("age", "verify");
 
         if (!result?.success) {
-            return;
+            return false;
         }
 
         await registerVisit();
+
+        return true;
+    }
+
+    function handleClose() {
         setIsOpen(false);
     }
 
@@ -34,5 +40,5 @@ export function AgeGateModal() {
         return null;
     }
 
-    return <YearsOld onConfirm={handleConfirm} />;
+    return <YearsOld onConfirm={handleConfirm} onClose={handleClose} />;
 }

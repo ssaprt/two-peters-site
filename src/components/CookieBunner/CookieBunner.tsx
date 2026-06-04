@@ -72,10 +72,7 @@ export const CookieBunner = () => {
                 style={{ "--b": `${visibleFooter}px` } as CSSProperties}
             >
                 <div>
-                    <span>
-                        Мы используем файлы cookie для обеспечения правильной
-                        работы сайта.
-                    </span>
+                    <span>Мы используем файлы cookie.</span>
                     <button
                         onClick={() => modalData.isOpen()}
                         className={clsx(styles.button, styles.more)}

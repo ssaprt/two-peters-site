@@ -17,6 +17,7 @@ interface Props {
         priority?: boolean;
         preview?: boolean;
         backSetLoad?: () => void;
+        backSetOnLoad?: () => void;
     };
 
     video?: {
@@ -243,6 +244,7 @@ export const DefaultObserveImage = ({
 
     const handleImageLoad = () => {
         setLoaded(true);
+        image?.backSetOnLoad?.();
     };
 
     const handleVideoMeta = () => {

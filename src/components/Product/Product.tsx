@@ -9,6 +9,7 @@ import {
     ProductInterface,
 } from "@/lib/api/Products";
 
+import { layoutStore } from "@/stores/LayoutStore";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { DefaultObserveImage } from "../image/DefaultObserveImage/DefaultObserveImage";
@@ -18,9 +19,10 @@ import styles from "./Product.module.css";
 type Props = {
     category: CategoryInterface;
     product: ProductInterface;
+    index?: number;
 };
 
-export const Product = ({ category, product }: Props) => {
+export const Product = ({ category, product, index }: Props) => {
     const refOverlay = useRef<HTMLDivElement>(null);
     const refProd = useRef<HTMLDivElement>(null);
     const { isMobile } = useAppContext();
@@ -43,6 +45,13 @@ export const Product = ({ category, product }: Props) => {
         }
     }, [refOverlay.current, mounted]);
 
+    useEffect(() => {
+        if (!mounted) return;
+        if (!index) return;
+
+        layoutStore.addLoadElement(`product${index}`);
+    }, [index]);
+
     if (!mounted) return null;
 
     return (
@@ -59,6 +68,10 @@ export const Product = ({ category, product }: Props) => {
                             backSetLoad: () => {
                                 toggle();
                             },
+                            backSetOnLoad: () => {
+                                layoutStore.setLoadElement(`product${index}`);
+                            },
+                            priority: [0, 1, 2, 3].includes(index || 0),
                         }}
                         src_image={getProductSrc(product)}
                         alt={`${product.name_wine} - вино винодельни two-peters.ru. То самое вино, которые выделяют сомелье за его вкусовые особенности`}
